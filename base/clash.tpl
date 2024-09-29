@@ -4,6 +4,7 @@ mode: rule
 log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
+secret: b1ghawk119
 clash-for-android:
   append-system-dns: false
 profile:
