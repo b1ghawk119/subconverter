@@ -13,6 +13,17 @@ profile:
   tracing: true
 experimental:
   sniff-tls-sni: true
+sniffer:
+  enable: true
+  sniffing:
+    - tls
+    - http
+  skip-domain:
+    - 'Mijia Cloud'
+    - 'dlg.io.mi.com'
+    - '+.apple.com'
+  force-domain: 
+    - 'google.com'
 dns:
   enable: true
   prefer-h3: true
