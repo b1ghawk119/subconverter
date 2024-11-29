@@ -1,4 +1,5 @@
 mixed-port: 7890
+tcp-concurrent: true
 allow-lan: false
 mode: rule
 log-level: info
