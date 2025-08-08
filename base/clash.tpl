@@ -153,6 +153,9 @@ dns:
     - tls://223.6.6.6:853
     - tls://1.12.12.12
     - tls://120.53.53.53
+  nameserver-policy:
+    'dl.google.com': 'https://223.6.6.6/dns-query'
+    'dl.l.google.com': 'https://223.6.6.6/dns-query'
   fallback:
     - https://1.0.0.1/dns-query
     - https://public.dns.iij.jp/dns-query
