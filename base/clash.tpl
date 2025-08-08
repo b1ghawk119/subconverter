@@ -155,9 +155,6 @@ dns:
     - tls://120.53.53.53
   nameserver-policy:
     '+.arpa': '10.0.0.1'
-    'rule-set:cn':
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
     'dl.google.com': 
       - 114.114.114.114
       - tls://223.5.5.5:853
