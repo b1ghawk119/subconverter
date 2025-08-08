@@ -31,6 +31,8 @@ dns:
     - "*.test"
     - "*.local"
     - "*.home.arpa"
+    - dl.google.com
+    - dl.l.google.com
          #放行NTP服务"
     - "time.*.com"
     - "time.*.gov"
