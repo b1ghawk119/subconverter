@@ -5,6 +5,10 @@ log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: b1ghawk119
+tun:
+  dns-hijack:
+    - any:53
+    - tcp://any:53
 clash-for-android:
   append-system-dns: false
 profile:
