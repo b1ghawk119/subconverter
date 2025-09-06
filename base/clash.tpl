@@ -214,11 +214,13 @@ dns:
       - +.googletagmanager.com 
       - +.googletagservices.com
 {% if local.clash.new_field_name == "true" %}
-proxies: ~
+proxies: 
+  - {name: "dns-拦截", type: dns}
 proxy-groups: ~
 rules: ~
 {% else %}
 Proxy: ~
 Proxy Group: ~
-Rule: ~
+Rule: 
+  - DST-PORT,53,dns-拦截
 {% endif %}
