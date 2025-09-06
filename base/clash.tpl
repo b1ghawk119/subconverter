@@ -216,6 +216,7 @@ dns:
 {% if local.clash.new_field_name == "true" %}
 proxies: 
   - {name: "fake-dns", type: dns}
+  - ~
 proxy-groups: ~
 rules: 
   - DST-PORT,53,fake-dns
