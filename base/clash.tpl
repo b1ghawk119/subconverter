@@ -214,12 +214,9 @@ dns:
       - +.googletagmanager.com 
       - +.googletagservices.com
 {% if local.clash.new_field_name == "true" %}
-proxies: 
-  - {name: "fake-dns", type: dns}
-  - ~
+proxies: ~
 proxy-groups: ~
-rules: 
-  - DST-PORT,53,fake-dns
+rules: ~
 {% else %}
 Proxy: ~
 Proxy Group: ~
