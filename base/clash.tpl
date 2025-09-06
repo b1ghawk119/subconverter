@@ -215,10 +215,10 @@ dns:
       - +.googletagservices.com
 {% if local.clash.new_field_name == "true" %}
 proxies: 
-  - {name: "dns-拦截", type: dns}
+  - {name: "fake-dns", type: dns}
 proxy-groups: ~
 rules: 
-  - DST-PORT,53,dns-拦截
+  - DST-PORT,53,fake-dns
 {% else %}
 Proxy: ~
 Proxy Group: ~
