@@ -4,7 +4,7 @@ mode: rule
 log-level: info
 tcp-concurrent: true
 global-client-fingerprint: chrome
-ipv6: false
+ipv6: true
 external-controller: 127.0.0.1:9090
 secret: b1ghawk119
 tun:
@@ -46,7 +46,7 @@ dns:
     - 223.5.5.5
     - 223.6.6.6
     - 119.29.29.29
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
   # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
   proxy-server-nameserver:
