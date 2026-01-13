@@ -165,13 +165,8 @@ dns:
     - "+.media.dssott.com"
     - "+.pvp.net"
   nameserver:
-    - 114.114.114.114
-    - tls://1.1.1.1
-    - tls://8.8.8.8
-    - tls://223.5.5.5:853
-    - tls://223.6.6.6:853
-    - tls://1.12.12.12
-    - tls://120.53.53.53
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
     "geosite:cn":
       - https://dns.alidns.com/dns-query
