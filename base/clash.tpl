@@ -38,6 +38,7 @@ dns:
     - https://doh.pub/dns-query          # 腾讯 DoH
     - tls://dns.alidns.com:853           # 阿里 DoT
     - tls://dot.pub:853
+    - tls://223.5.5.5:853               # 阿里DoT
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
