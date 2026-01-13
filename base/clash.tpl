@@ -50,11 +50,13 @@ dns:
   enhanced-mode: fake-ip
   # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
   proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
+    - https://v.recipes/dns-query
     - https://doh.360.cn/dns-query
-    - https://doh.apad.pro/dns-query
-    - https://v.recipes/dns-cn
+    - https://doh.apad.pro/dns-query    
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
