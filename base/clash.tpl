@@ -34,10 +34,10 @@ dns:
   enhanced-mode: fake-ip
   # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
   proxy-server-nameserver:
-    - "https://1.1.1.1/dns-query"
-    - "https://8.8.8.8/dns-query"
-    - tls://1.1.1.1
-    - tls://8.8.8.8
+    - https://dns.alidns.com/dns-query   # 阿里 DoH 
+    - https://doh.pub/dns-query          # 腾讯 DoH
+    - tls://dns.alidns.com:853           # 阿里 DoT
+    - tls://dot.pub:853
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
