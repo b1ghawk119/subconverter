@@ -173,6 +173,9 @@ dns:
     - tls://1.12.12.12
     - tls://120.53.53.53
   nameserver-policy:
+    "geosite:cn":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
     '+.arpa': '10.0.0.1'
     'dl.google.com': 
       - 114.114.114.114
