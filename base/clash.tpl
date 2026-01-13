@@ -22,7 +22,9 @@ profile:
 sniffer:
   enable: true
   # 用嗅探到的域名当作“实际访问目的地”
-  override-destination: true
+  override-destination: false
+  force-dns-mapping: true
+  parse-pure-ip: true
   sniff:
     TLS:
       ports: [443, 8443]
