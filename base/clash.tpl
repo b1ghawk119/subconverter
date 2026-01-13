@@ -55,6 +55,9 @@ dns:
     - tls://dns.alidns.com:853           # 阿里 DoT
     - tls://dot.pub:853
     - tls://223.5.5.5:853               # 阿里DoT
+    - https://1.1.1.1/dns-query#RULES
+    - tls://1.1.1.1:853#RULES
+    - tls://8.8.8.8:853#RULES
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
