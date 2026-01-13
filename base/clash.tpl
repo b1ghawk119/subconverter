@@ -8,6 +8,7 @@ ipv6: false
 external-controller: 127.0.0.1:9090
 secret: b1ghawk119
 tun:
+  enable: true
   dns-hijack:
     - any:53
     - tcp://any:53
