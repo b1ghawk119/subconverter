@@ -19,6 +19,20 @@ profile:
   tracing: true
   store-selected: true
   store-fake-ip: true
+sniffer:
+  enable: true
+  # 用嗅探到的域名当作“实际访问目的地”
+  override-destination: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+    QUIC:
+      ports: [443, 8443]
+  # 可选：避免一些站点/设备的 SNI/Host 很奇怪导致误判
+  skip-domain:
+    - "Mijia Cloud"
 experimental:
   sniff-tls-sni: true
 dns:
