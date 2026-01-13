@@ -206,9 +206,9 @@ dns:
       - tls://120.53.53.53
   fallback:
     - https://v.recipes/dns-cn
-    - https://1.1.1.1/dns-query
-    - tls://1.1.1.1:853
-    - tls://8.8.8.8:853
+    - https://1.1.1.1/dns-query#RULES
+    - tls://1.1.1.1:853#RULES
+    - tls://8.8.8.8:853#RULES
   fallback-filter:
     geoip: true
     geoip-code: CN
