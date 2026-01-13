@@ -2,6 +2,8 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
+tcp-concurrent: true
+global-client-fingerprint: chrome
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: b1ghawk119
@@ -25,6 +27,12 @@ dns:
     - 8.8.4.4
   ipv6: false
   enhanced-mode: fake-ip
+  # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
+  proxy-server-nameserver:
+    - "https://1.1.1.1/dns-query"
+    - "https://8.8.8.8/dns-query"
+    - tls://1.1.1.1
+    - tls://8.8.8.8
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
@@ -153,6 +161,8 @@ dns:
     - "+.pvp.net"
   nameserver:
     - 114.114.114.114
+    - tls://1.1.1.1
+    - tls://8.8.8.8
     - tls://223.5.5.5:853
     - tls://223.6.6.6:853
     - tls://1.12.12.12
