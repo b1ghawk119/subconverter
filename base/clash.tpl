@@ -17,6 +17,8 @@ clash-for-android:
 profile:
   # open tracing exporter API
   tracing: true
+  store-selected: true
+  store-fake-ip: true
 experimental:
   sniff-tls-sni: true
 dns:
@@ -187,7 +189,10 @@ dns:
     - https://public.dns.iij.jp/dns-query
     - tls://8.8.4.4:853
   fallback-filter:
-    geoip: false
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
