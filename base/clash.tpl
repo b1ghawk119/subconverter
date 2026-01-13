@@ -185,9 +185,9 @@ dns:
       - tls://1.12.12.12
       - tls://120.53.53.53
   fallback:
-    - https://1.0.0.1/dns-query
-    - https://public.dns.iij.jp/dns-query
-    - tls://8.8.4.4:853
+    - https://1.1.1.1/dns-query
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
   fallback-filter:
     geoip: true
     geoip-code: CN
