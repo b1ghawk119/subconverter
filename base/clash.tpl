@@ -52,8 +52,8 @@ dns:
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - tls://dns.alidns.com:853
-    - tls://dot.pub:853
+    - https://doh.360.cn/dns-query
+    - https://doh.apad.pro/dns-query
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
