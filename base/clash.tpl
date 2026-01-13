@@ -25,9 +25,11 @@ dns:
   enable: true
   prefer-h3: false
   listen: 127.0.0.1:8853
+  # 仅用于解析 DoH/DoT 服务器域名的“引导 DNS”，必须是 IP
   default-nameserver:
     - 223.5.5.5
-    - 8.8.4.4
+    - 223.6.6.6
+    - 119.29.29.29
   ipv6: false
   enhanced-mode: fake-ip
   # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
