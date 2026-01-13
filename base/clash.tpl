@@ -54,6 +54,7 @@ dns:
     - https://doh.pub/dns-query
     - https://doh.360.cn/dns-query
     - https://doh.apad.pro/dns-query
+    - https://v.recipes/dns-cn
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
