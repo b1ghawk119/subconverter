@@ -184,6 +184,9 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://doh.360.cn/dns-query
+    - https://doh.apad.pro/dns-query
+    - https://v.recipes/dns-cn
   nameserver-policy:
     "geosite:cn":
       - https://dns.alidns.com/dns-query
@@ -202,9 +205,10 @@ dns:
       - tls://1.12.12.12
       - tls://120.53.53.53
   fallback:
-    - https://1.1.1.1/dns-query#RULES
-    - tls://1.1.1.1:853#RULES
-    - tls://8.8.8.8:853#RULES
+    - https://v.recipes/dns-cn
+    - https://1.1.1.1/dns-query
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
   fallback-filter:
     geoip: true
     geoip-code: CN
