@@ -20,7 +20,7 @@ experimental:
   sniff-tls-sni: true
 dns:
   enable: true
-  prefer-h3: true
+  prefer-h3: false
   listen: 127.0.0.1:8853
   default-nameserver:
     - 223.5.5.5
