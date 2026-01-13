@@ -40,7 +40,7 @@ experimental:
 dns:
   enable: true
   prefer-h3: false
-  listen: 127.0.0.1:8853
+  listen: 0.0.0.0:8853
   # 仅用于解析 DoH/DoT 服务器域名的“引导 DNS”，必须是 IP
   default-nameserver:
     - 223.5.5.5
