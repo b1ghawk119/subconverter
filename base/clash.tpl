@@ -9,19 +9,18 @@ external-controller: 127.0.0.1:9090
 secret: b1ghawk119
 tun:
   enable: true
+  stack: mixed
   dns-hijack:
     - any:53
     - tcp://any:53
 clash-for-android:
   append-system-dns: false
 profile:
-  # open tracing exporter API
   tracing: true
   store-selected: true
   store-fake-ip: true
 sniffer:
   enable: true
-  # 用嗅探到的域名当作“实际访问目的地”
   override-destination: false
   force-dns-mapping: true
   parse-pure-ip: true
@@ -32,31 +31,19 @@ sniffer:
       ports: [80, 8080-8880]
     QUIC:
       ports: [443, 8443]
-  # 可选：避免一些站点/设备的 SNI/Host 很奇怪导致误判
   skip-domain:
     - "Mijia Cloud"
+    - "+.push.apple.com"
 experimental:
   sniff-tls-sni: true
 dns:
   enable: true
-  prefer-h3: false
+  prefer-h3: true
   listen: 0.0.0.0:8853
-  # 仅用于解析 DoH/DoT 服务器域名的“引导 DNS”，必须是 IP
-  default-nameserver:
-    - 223.5.5.5
-    - 223.6.6.6
-    - 119.29.29.29
+  respect-rules: true
   ipv6: true
   enhanced-mode: fake-ip
-  # 如果你的节点 server 是域名，强烈建议配 proxy-server-nameserver
-  proxy-server-nameserver:
-    - https://v.recipes/dns-query
-    - https://doh.360.cn/dns-query
-    - https://doh.apad.pro/dns-query    
-    - https://1.12.12.12/dns-query
-    - https://120.53.53.53/dns-query
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+  fake-ip-range: 28.0.0.1/8
   #fake-ip-range: 198.10.0.1/16
   fake-ip-filter:
     - "*.lan"
@@ -183,37 +170,32 @@ dns:
          #Disney Plus"
     - "+.media.dssott.com"
     - "+.pvp.net"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://doh.360.cn/dns-query
-    - https://doh.apad.pro/dns-query
-    - https://v.recipes/dns-cn
-  nameserver-policy:
-    "geosite:cn":
+  fallback:
+    - https://dns.google/dns-query#RULES
+    - https://cloudflare-dns.com/dns-query#RULES
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  direct-nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://doh.360.cn/dns-query
-    - https://doh.apad.pro/dns-query
-    - https://v.recipes/dns-cn
-    '+.arpa': '10.0.0.1'
+  nameserver-policy:
+    "geosite:cn":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
     'dl.google.com': 
-      - 114.114.114.114
-      - tls://223.5.5.5:853
-      - tls://223.6.6.6:853
-      - tls://1.12.12.12
-      - tls://120.53.53.53
+      - 223.5.5.5
+      - 119.29.29.29
     'dl.l.google.com': 
-      - 114.114.114.114
-      - tls://223.5.5.5:853
-      - tls://223.6.6.6:853
-      - tls://1.12.12.12
-      - tls://120.53.53.53
-  fallback:
-    - https://v.recipes/dns-query
-    - https://1.1.1.1/dns-query
-    - tls://1.1.1.1:853
-    - tls://8.8.8.8:853
+      - 223.5.5.5
+      - 119.29.29.29
+    '+.arpa': '10.0.0.1'
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -224,37 +206,13 @@ dns:
       - 0.0.0.0/32
       - 127.0.0.1/32
     domain:
-      - +.facebook.com 
-      - +.twitter.com 
-      - +.google.com 
-      - +.googleapis.com 
-      - +.google.cn 
-      - +.googleapis.cn 
-      - +.xn--ngstr-lra8j.com 
-      - +.googlevideo.com 
-      - +.gvt1.com 
-      - +.gmail.com 
-      - +.youtube.com 
-      - +.youtu.be 
-      - +.gvt0.com 
-      - +.gvt2.com 
-      - +.gvt3.com 
-      - +.gstatic.com 
-      - +.265.com 
-      - +.2mdn.net 
-      - +.app-measurement.com 
-      - +.c.admob.com 
-      - +.clickserve.dartsearch.net
-      - +.crl.pki.goog 
-      - +.doubleclick.net 
-      - +.firebase-settings.crashlytics.com 
-      - +.google-analytics.com 
-      - +.googleadservices.com 
-      - +.googleanalytics.com 
-      - +.googleoptimize.com 
-      - +.googlesyndication.com 
-      - +.googletagmanager.com 
-      - +.googletagservices.com
+      - '+.google.com'
+      - '+.googleapis.com'
+      - '+.youtube.com'
+      - '+.facebook.com'
+      - '+.twitter.com'
+      - '+.github.com'
+      - '+.githubusercontent.com'
 {% if local.clash.new_field_name == "true" %}
 proxies: 
   - {name: "dns-拦截", type: dns}
