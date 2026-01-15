@@ -31,6 +31,9 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
+  route-exclude-address:
+    - 192.168.0.0/16
+    - 'fc00::/7'
 clash-for-android:
   append-system-dns: false
 profile:
