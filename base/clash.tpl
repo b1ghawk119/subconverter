@@ -4,7 +4,7 @@ mode: rule
 log-level: info
 tcp-concurrent: true
 global-client-fingerprint: chrome
-ipv6: true
+ipv6: false
 external-controller: '127.0.0.1:9090'
 secret: b1ghawk119
 hosts:
@@ -65,7 +65,7 @@ dns:
   prefer-h3: false
   listen: '127.0.0.1:8853'
   respect-rules: true
-  ipv6: true
+  ipv6: false
   cache-algorithm: arc
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
