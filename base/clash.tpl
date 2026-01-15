@@ -7,6 +7,10 @@ global-client-fingerprint: chrome
 ipv6: true
 external-controller: 127.0.0.1:9090
 secret: b1ghawk119
+hosts:
+  dns.google: [8.8.8.8, 8.8.4.4, 2001:4860:4860::8888, 2001:4860:4860::8844]
+  doh.pub: [1.12.12.12, 1.12.12.21, 120.53.53.53]
+  dns.alidns.com: [223.5.5.5, 223.6.6.6, 2400:3200::1, 2400:3200:baba::1]
 tun:
   enable: true
   stack: mixed
