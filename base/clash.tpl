@@ -31,13 +31,21 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
+  mtu: 1280
+  disable-icmp-forwarding: true
   route-exclude-address:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
     - 192.168.0.0/16
-    - 'fc00::/7'
+    - 169.254.0.0/16
+    - 127.0.0.0/8
+    - "::1/128"
+    - "fe80::/10"
+    - "fc00::/7"
 clash-for-android:
   append-system-dns: false
 profile:
-  tracing: true
+  tracing: false
   store-selected: true
   store-fake-ip: true
 sniffer:
@@ -65,39 +73,63 @@ experimental:
   sniff-tls-sni: true
 dns:
   enable: true
+  ipv6: false
   prefer-h3: false
   listen: '127.0.0.1:8853'
+  use-hosts: true
+  use-system-hosts: true
   respect-rules: true
-  ipv6: false
   cache-algorithm: arc
   enhanced-mode: fake-ip
+  fake-ip-filter-mode: blacklist
   fake-ip-range: 198.18.0.1/16
   fake-ip-range6: 'fc00::/18'
   fake-ip-filter:
-    - '*.lan'
-    - '*.local'
-    - '*.localhost'
-    - '*.home.arpa'
-    - time.*.com
-    - time.*.gov
-    - time.*.apple.com
-    - ntp.*.com
-    - +.pool.ntp.org
-    - +.msftconnecttest.com
-    - +.msftncsi.com
-    - +.srv.nintendo.net
-    - +.stun.playstation.net
-    - xbox.*.microsoft.com
-    - +.battlenet.com.cn
-    - +.music.163.com
-    - +.y.qq.com
-    - +.bilivideo.cn
-    - localhost.ptlogin2.qq.com
-    - lens.l.google.com
+    - "geosite:connectivity-check"
+    - "geosite:private"
+    - "geosite:cn"
+    - "*.lan"
+    - "*.local"
+    - "*.localhost"
+    - "*.home.arpa"
+    - "WORKGROUP"
+    - "localhost.ptlogin2.qq.com"
+
+    # NTP / time
+    - "time.*.com"
+    - "time.*.gov"
+    - "time.*.apple.com"
+    - "ntp.*.com"
+    - "+.pool.ntp.org"
+
+    # Windows 网络检测
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+
+    # 游戏 / P2P / STUN 常见问题域名
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - "+.stun.playstation.net"
+    - "xbox.*.*.microsoft.com"
+    - "*.*.xboxlive.com"
+
+    # 国内音乐/视频等（按你原配置保留）
+    - "+.battlenet.com.cn"
+    - "+.music.163.com"
+    - "+.y.qq.com"
+    - "+.bilivideo.cn"
+
+    # Google Lens（按你原配置保留）
+    - "lens.l.google.com"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
   nameserver:
+    - "system"
     - 'https://dns.alidns.com/dns-query'
     - 'https://doh.pub/dns-query'
   fallback:
