@@ -146,11 +146,11 @@ dns:
       - 'https://dns.alidns.com/dns-query'
       - 'https://doh.pub/dns-query'
     dl.google.com:
-      - 223.5.5.5
-      - 119.29.29.29
+      - 'https://dns.alidns.com/dns-query'
+      - 'https://doh.pub/dns-query'
     dl.l.google.com:
-      - 223.5.5.5
-      - 119.29.29.29
+      - 'https://dns.alidns.com/dns-query'
+      - 'https://doh.pub/dns-query'
     +.in-addr.arpa: 10.0.0.1
     +.ip6.arpa: 10.0.0.1
   fallback-filter:
