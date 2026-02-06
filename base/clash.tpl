@@ -168,15 +168,10 @@ dns:
       - 192.168.0.0/16
       - 240.0.0.0/4
 
-{% if local.clash.new_field_name == "true" %}
+
+
 proxies:
   - name: dns-拦截
     type: dns
 proxy-groups: ~
 rules: ~
-{% else %}
-Proxy: ~
-Proxy Group: ~
-Rule:
-  - 'DST-PORT,53,dns-拦截'
-{% endif %}
