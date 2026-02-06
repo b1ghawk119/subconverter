@@ -168,6 +168,10 @@ dns:
       - 192.168.0.0/16
       - 240.0.0.0/4
 
-proxies: ~
+proxies:
+  - name: dns-拦截
+    type: dns
+
 proxy-groups: ~
+
 rules: ~
