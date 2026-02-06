@@ -1,0 +1,3 @@
+proxies:
+  - name: dns-拦截
+    type: dns
