@@ -169,7 +169,5 @@ dns:
       - 240.0.0.0/4
 
 proxies: ~
-  - name: dns-拦截
-    type: dns
 proxy-groups: ~
 rules: ~
