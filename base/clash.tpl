@@ -80,8 +80,6 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-range6: 'fc00::/18'
   fake-ip-filter:
-    # 让浏览器可以取得 LinuxDO 的真实地址和 HTTPS (TYPE65) 记录。
-    - '+.linux.do'
     - 'geosite:connectivity-check'
     - 'geosite:private'
     - 'geosite:cn'
@@ -133,7 +131,6 @@ dns:
     - 'https://doh.pub/dns-query'
   direct-nameserver-follow-policy: true
   nameserver-policy:
-    '+.linux.do': 'https://edge.1molchuan.top/linuxdo'
     'geosite:cn':
       - 'https://dns.alidns.com/dns-query'
       - 'https://doh.pub/dns-query'
